@@ -1760,7 +1760,7 @@ subroutine fsymmetric_gaussian_process_kernel(x1, dx1, q1, n1, nm1, na1, sigma, 
 
 end subroutine fsymmetric_gaussian_process_kernel
 
-subroutine fsymmetric_local_kernel_laplacian_danish(x1, q1, n1, nm1, sigma, kernel)
+subroutine fsymmetric_local_kernel_laplacian(x1, q1, n1, nm1, sigma, kernel)
 
     implicit none
 
@@ -1819,10 +1819,10 @@ subroutine fsymmetric_local_kernel_laplacian_danish(x1, q1, n1, nm1, sigma, kern
     enddo
     !$OMP END PARALLEL do
 
-end subroutine fsymmetric_local_kernel_laplacian_danish
+end subroutine fsymmetric_local_kernel_laplacian
 
 
-subroutine flocal_kernel_laplacian_danish(x1, x2, q1, q2, n1, n2, nm1, nm2, sigma, kernel)
+subroutine flocal_kernel_laplacian(x1, x2, q1, q2, n1, n2, nm1, nm2, sigma, kernel)
 
     implicit none
 
@@ -1880,9 +1880,9 @@ subroutine flocal_kernel_laplacian_danish(x1, x2, q1, q2, n1, n2, nm1, nm2, sigm
     enddo
     !$OMP END PARALLEL do
 
-end subroutine flocal_kernel_laplacian_danish
+end subroutine flocal_kernel_laplacian
 
-subroutine fsymmetric_local_kernels_laplacian_danish(x1, q1, n1, nm1, sigmas, nsigmas, kernel)
+subroutine fsymmetric_local_kernels_laplacian(x1, q1, n1, nm1, sigmas, nsigmas, kernel)
 
     ! use omp_lib, only: omp_get_thread_num, omp_get_wtime
 
@@ -1989,7 +1989,7 @@ subroutine fsymmetric_local_kernels_laplacian_danish(x1, q1, n1, nm1, sigmas, ns
 
     deallocate(inv_sigma2)
 
-end subroutine fsymmetric_local_kernels_laplacian_danish
+end subroutine fsymmetric_local_kernels_laplacian
 
 subroutine fsymmetric_local_kernel_min_laplacian(x1, q1, n1, nm1, sigma, kernel)
 
