@@ -3,22 +3,19 @@ QML: A Python Toolkit for Quantum Machine Learning
 
 |Build Status| |doi| |doi|
 
-QML is a Python2/3-compatible toolkit for representation learning of
-properties of molecules and solids.
+Fork of the QML library containing additional local kernels including local laplacian and local MBDF kernels.
+Usage is entirely similar to the local kernels available in qmlcode : 
+```
+from MBDF import generate_mbdf
+rep = generate_mbdf(charges, coordinates)
+from qml.kernels import get_local_symmetric_kernel_laplacian, get_local_kernel_laplacian
+K_train = get_local_symmetric_kernel_laplacian(X_train, Q_train, SIGMA)
+K_test = get_local_kernel_laplacian(X_train, X_test, Q_train, Q_test, SIGMA)
 
-Current list of contributors:
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-- Anders S. Christensen (University of Basel)
-- Lars A. Bratholm (University of Bristol)
-- Silvia Amabilino (University of Bristol)
-- Jimmy C. Kromann (University of Basel)
-- Felix A. Faber (University of Basel)
-- Bing Huang (University of Basel)
-- David R. Glowacki (University of Bristol)
-- Alexandre Tkatchenko (University of Luxembourg)
-- Klaus-Robert Muller (Technische Universitat Berlin/Korea University)
-- \O. Anatole von Lilienfeld (University of Basel)
+from qml.kernels import get_local_symmetric_kernel_mbdf, get_local_kernel_mbdf
+K_train = get_local_symmetric_kernel_mbdf(X_train, Q_train, SIGMA)
+K_test = get_local_kernel_mbdf(X_train, X_test, Q_train, Q_test, SIGMA)
+```
 
 1) Citing QML:
 --------------
