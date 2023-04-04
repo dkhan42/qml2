@@ -8,7 +8,6 @@ Usage is entirely similar to the local kernels available in qmlcode :
 
 ```
 
-rep = generate_mbdf(charges, coordinates)
 from qml.kernels import get_local_symmetric_kernel_laplacian, get_local_kernel_laplacian
 K_train = get_local_symmetric_kernel_laplacian(X_train, Q_train, SIGMA)
 K_test = get_local_kernel_laplacian(X_train, X_test, Q_train, Q_test, SIGMA)
