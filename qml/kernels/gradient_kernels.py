@@ -38,9 +38,9 @@ from .fgradient_kernels import fgdml_kernel
 from .fgradient_kernels import fsymmetric_gdml_kernel
 from .fgradient_kernels import fgaussian_process_kernel
 from .fgradient_kernels import fsymmetric_gaussian_process_kernel
-from .fgradient_kernels import flocal_kernel_laplacian_danish
-from .fgradient_kernels import fsymmetric_local_kernel_laplacian_danish
-from .fgradient_kernels import fsymmetric_local_kernels_laplacian_danish
+from .fgradient_kernels import flocal_kernel_laplacian
+from .fgradient_kernels import fsymmetric_local_kernel_laplacian
+from .fgradient_kernels import fsymmetric_local_kernels_laplacian
 from .fgradient_kernels import fsymmetric_local_kernel_min_laplacian
 from .fgradient_kernels import fsymmetric_local_kernel_nodelta
 from .fgradient_kernels import fsymmetric_local_kernel_mbdf
@@ -984,7 +984,7 @@ def get_symmetric_gp_kernel(X1, dX1, Q1, SIGMA):
 
     return K
 
-def get_local_kernel_laplacian_danish(X1, X2, Q1, Q2, SIGMA):
+def get_local_kernel_laplacian(X1, X2, Q1, Q2, SIGMA):
     """ Calculates the Laplacian kernel matrix K with the local decomposition where :math:`K_{ij}`:
 
             :math:`K_{ij} = \\sum_{I\\in i} \\sum_{J\\in j}\\exp \\big( -\\frac{\\|X_I - X_J\\|_2}{2\\sigma} \\big)`
@@ -1028,7 +1028,7 @@ def get_local_kernel_laplacian_danish(X1, X2, Q1, Q2, SIGMA):
     for i, q in enumerate(Q2):
         Q2_input[:len(q),i] = q
 
-    K = flocal_kernel_laplacian_danish(
+    K = flocal_kernel_laplacian(
             X1,
             X2,
             Q1_input,
@@ -1042,7 +1042,7 @@ def get_local_kernel_laplacian_danish(X1, X2, Q1, Q2, SIGMA):
 
     return K
 
-def get_local_symmetric_kernel_laplacian_danish(X1, Q1, SIGMA):
+def get_local_symmetric_kernel_laplacian(X1, Q1, SIGMA):
     """ Calculates the Laplacian kernel matrix K with the local decomposition where :math:`K_{ij}`:
 
             :math:`K_{ij} = \\sum_{I\\in i} \\sum_{J\\in j}\\exp \\big( -\\frac{\\|X_I - X_J\\|_2}{2\\sigma} \\big)`
@@ -1079,7 +1079,7 @@ def get_local_symmetric_kernel_laplacian_danish(X1, Q1, SIGMA):
     for i, q in enumerate(Q1):
         Q1_input[:len(q),i] = q
 
-    K = fsymmetric_local_kernel_laplacian_danish(
+    K = fsymmetric_local_kernel_laplacian(
             X1,
             Q1_input,
             N1,
@@ -1089,7 +1089,7 @@ def get_local_symmetric_kernel_laplacian_danish(X1, Q1, SIGMA):
 
     return K
 
-def get_local_symmetric_kernels_laplacian_danish(X1, Q1, SIGMAS):
+def get_local_symmetric_kernels_laplacian(X1, Q1, SIGMAS):
     """ Calculates the Laplacian kernel matrix K with the local decomposition where :math:`K_{ij}`:
 
             :math:`K_{ij} = \\sum_{I\\in i} \\sum_{J\\in j}\\exp \\big( -\\frac{\\|X_I - X_J\\|_2^2}{2\\sigma^2} \\big)`
@@ -1127,7 +1127,7 @@ def get_local_symmetric_kernels_laplacian_danish(X1, Q1, SIGMAS):
         Q1_input[:len(q),i] = q
 
     nsigmas = len(SIGMAS)
-    K = fsymmetric_local_kernels_laplacian_danish(
+    K = fsymmetric_local_kernels_laplacian(
             X1,
             Q1_input,
             N1,
