@@ -5,6 +5,7 @@ QML: A Python Toolkit for Quantum Machine Learning
 
 Fork of the QML library containing additional local kernels including local laplacian and local MBDF kernels.
 Usage is entirely similar to the local kernels available in qmlcode : 
+
 ```
 from MBDF import generate_mbdf
 rep = generate_mbdf(charges, coordinates)
