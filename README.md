@@ -2,6 +2,11 @@ QML: A Python Toolkit for Quantum Machine Learning
 ==================================================
 
 Fork of the QML library (https://github.com/qmlcode/qml) containing additional local kernels including local laplacian and local MBDF kernels.
+Can be installed as :
+```
+python setup.py install
+```
+
 Usage is entirely similar to the local kernels available in qmlcode : 
 
 ```
